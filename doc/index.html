@@ -1,0 +1,166 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+		<title>JoyBricx</title>
+		<link href="favicon.ico" rel="SHORTCUT ICON">
+		<base href="http://www.research.co.jp/MindStorms/JoyBricx/">
+	</head>
+
+	<body bgcolor="#FFFFFF">
+		<h1><font color="#000000" face="Arial">JoyBricx</font></h1>
+		<p align="right"><a href="index.html">Japanese version is here.</a></p>
+		<hr>
+		<h2><font color="#000000" face="Arial">Introduction </font></h2>
+		<p><font color="#000000" face="Arial">MindStorms SDK 2.5 was released in December, 2002 by TLG.</font></p>
+		<p>I thought that all the things for which I want to LEGO Tower could be performed.<font color="#000000" face="Arial">. But when I start to build an application, there are some problems. </font></p>
+		<p><font color="#000000" face="Arial">Ex. The TowerApi.dll and the TowerApi.h are included, but no TowerApi.lib.</font></p>
+		<p><font color="#000000" face="Arial">Although, if I don't have *.dll, I can use LoadLibrary() and set the pointer to a function to the entrance of each function, </font></p>
+		<p><font color="#000000" face="Arial">This operation requires time and effort and it is easy to make a mistake. So I make a tool that do this operation automatically and make an application named LTremo76 for showed the example.</font></p>
+		<hr>
+		<h2><font color="#000000" face="Arial">USB LEGO Tower</font></h2>
+		<p><font color="#000000" face="Arial">Because the device driver for USB LEGO Tower is included in MindStorms SDK 2.5, we can use the USB LEGO Tower without RIS 2.0 set and enjoy NQC and etc.</font></p>
+		<p><font color="#000000" face="Arial">Of course, USB LEGO Tower is made for RCX, but thought that another function was hidden in USB LEGO Tower.</font></p>
+		<p><font color="#000000" face="Arial">I made </font><a href="../LTremo76"><font color="#000000" face="Arial">LTremo76</font></a><font color="#000000" face="Arial"> for an example of use TowerApi, so it isn't convenience for an application program.</font></p>
+		<p><font color="#000000" face="Arial">Although the program becomes complicated, I made the application named JoyBricx for easy to play.</font></p>
+		<hr>
+		<h2><font color="#000000" face="Arial">About JoyBricx </font></h2>
+		<p><font color="#000000" face="Arial">The JoyBricx is a application program for remote controller for the Spybots and the Bionicle RC Fighter using the Joystick and Game PAD.</font></p>
+		<p><font color="#000000" face="Arial">You could use not only Joystick and Game PAD but also the keyboard and the mice.</font></p>
+		<p><font color="#000000" face="Arial">It remembers all your operation to replay, save and load files.</font></p>
+		<p>And now, I release the now version &quot;JoyBricx&quot;.</p>
+		<ol>
+			<li>RCX/SCOUT support.
+			<li>Export NQC program.
+		</ol>
+		<hr>
+		<h2><font color="#000000" face="Arial">Download &amp; Install</font></h2>
+		<p><font color="#000000" face="Arial">I put here the</font><a href="JoyBricx-v2_1.zip"><font color="#000000" face="Arial"> zipped archive</font></a><font color="#000000" face="Arial"> file, included the source code. It is not modify the system registry and only delete the holder for un-install.</font></p>
+		<hr>
+		<h2><font color="#000000" face="Arial">How to play </font></h2>
+		<p><font color="#000000" face="Arial">It is too easy. So you may be early using it rather than reading this manual :)</font></p>
+		<p align="center"><font color="#000000" face="Arial"><img src="panel.gif" width="500" height="315"></font></p>
+		<p><font color="#000000" face="Arial"># I wanted to write this program and have bought LOAS JOP-U234-CBL (USB Game Pad).</font></p>
+		<p align="center"><font color="#000000" face="Arial"><img src="remoside.jpg" width="425" height="305"></font></p>
+		<p align="center"><font color="#000000" face="Arial"><img src="remotop.jpg" width="425" height="324"></font></p>
+		<ol>
+			<li><font color="#000000" face="Arial">Please Set your Spybots and RC Fighter different channels each other.</font>
+			<li><font color="#000000" face="Arial">This program can be used if there are X, Y axis, and six or more buttons. </font>
+			<li><font color="#000000" face="Arial">But a keyboard and a mice can also be operated, if you use to operate them, it isn't necessary to buy neither Joystick nor a game controller specially. </font>
+			<li><font color="#000000" face="Arial">X, Y axis are using for decide direction.</font>
+			<li><font color="#000000" face="Arial">The buttons No.1 to No. 4 are chose channel, you can select or more channel to send command simultaneous.</font>
+		</ol>
+		<table border="1" cellpadding="0">
+			<tr>
+				<td align="center"><font color="#000000" size="2" face="Arial">joypad key </font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">Operation </font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">Keyboard </font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">mice buttons</font></td>
+			</tr>
+			<tr>
+				<td align="center"><font color="#000000" size="2" face="Arial">X-axis </font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">right or left direction. </font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial"><img width="70" height="13" src="rightleft.gif"></font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">left-clicke on the ring</font></td>
+			</tr>
+			<tr>
+				<td align="center"><font color="#000000" size="2" face="Arial">Y-axis</font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">forward or reward direction</font></td>
+				<td align="center"><img width="49" height="32" src="updown.gif"></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">left-clicke on the ring</font></td>
+			</tr>
+			<tr>
+				<td align="center"><font color="#000000" size="2" face="Arial">Button 1 </font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">CH 1</font></td>
+				<td align="center">F1<font color="#000000" size="2" face="Arial"> </font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">CH 1 </font></td>
+			</tr>
+			<tr>
+				<td align="center"><font color="#000000" size="2" face="Arial">Button 2 </font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">CH 2</font></td>
+				<td align="center">F2<font color="#000000" size="2" face="Arial"> </font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">CH 2 </font></td>
+			</tr>
+			<tr>
+				<td align="center"><font color="#000000" size="2" face="Arial">Button 3 </font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">CH 3</font></td>
+				<td align="center">F<font color="#000000" size="2" face="Arial">3</font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">CH 3 </font></td>
+			</tr>
+			<tr>
+				<td align="center"><font color="#000000" size="2" face="Arial">Button 4 </font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">All Channel</font></td>
+				<td align="center">F<font color="#000000" size="2" face="Arial">4 </font></td>
+				<td align="center">&nbsp;</td>
+			</tr>
+			<tr>
+				<td align="center"><font color="#000000" size="2" face="Arial">Button 5 </font></td>
+				<td align="center"><font color="#000000" face="Arial">Start recording</font></td>
+				<td align="center">F5</td>
+				<td align="center"><font color="#000000" size="2" face="Arial">Start Button </font></td>
+			</tr>
+			<tr>
+				<td align="center"><font color="#000000" size="2" face="Arial">Button 6 </font></td>
+				<td align="center"><font color="#000000" size="2" face="Arial">End recording</font></td>
+				<td align="center">F6</td>
+				<td align="center"><font color="#000000" size="2" face="Arial">Stop Button </font></td>
+			</tr>
+			<tr>
+				<td align="center"><font color="#000000" size="2" face="Arial">Button 7</font></td>
+				<td align="center">Change to Spybot Mode</td>
+				<td align="center">F7</td>
+				<td align="center">Spybot/Bionicle Button</td>
+			</tr>
+			<tr>
+				<td align="center"><font color="#000000" size="2" face="Arial">Button 8</font></td>
+				<td align="center">Change to RCX Mode</td>
+				<td align="center">F8</td>
+				<td align="center">RCX/SCOUT Button</td>
+			</tr>
+		</table>
+		<p>Although Spybot and RCX/SCOUT cannot be moved simultaneously, but you can change by mode button momentary.</p>
+		<hr>
+		<h2><font color="#000000" face="Arial">How to save, load and replay</font></h2>
+		<p>All of action and the change of a channels are logged after push &quot;Start recording&quot; until push &quot;End recording&quot;.</p>
+		<p>The warning dialog is pop up, when you have no saved actions and start new recording or loading file.</p>
+		<p>Click on the &quot;Replay button&quot; to playback recorded or loaded file.</p>
+		<p>When you save the actions, if you select *.jbx as suffix that is the native format of this program. In this case, plural sets operations and the mode change operations are recorded, it can be made to replay completely.</p>
+		<p>Otherwise you select *.nqc. If you choose RCX mode, you will get only the operation performed to RCX/SCOUT. And if you select the Spybot mode, only the operation performed in channel 1 will be outputted.</p>
+		<hr>
+		<h2>Others tested devices</h2>
+		<p>Using USB to PS2/PS game controller, I tested 2 devices for &quot;Sony PlayStation 2&quot;.</p>
+		<p><img src="elecom.jpg" width="283" height="369"></p>
+		<p>Analog joystick.</p>
+		<p><img src="joystick.jpg" width="283" height="213"></p>
+		<p>Game pad for PS2.</p>
+		<p><img src="ps2pad.jpg" width="283" height="191"></p>
+		<p>They work good.</p>
+		<hr>
+		<h2><font color="#000000" face="Arial">License</font></h2>
+		<p><font color="#000000" face="Arial">Please keep the use the license agreement of SDK 2.5.</font></p>
+		<hr>
+		<h2>History</h2>
+		<table border="1" cellpadding="0">
+			<tr>
+				<td align="center">Feb. 2, 2003</td>
+				<td align="center">v1.0</td>
+				<td align="center">Beginning of history</td>
+			</tr>
+			<tr>
+				<td align="center">Feb. 8, 2003</td>
+				<td align="center">v2.0</td>
+				<td align="center">RCX support, Export NQC</td>
+			</tr>
+			<tr>
+				<td align="center">Feb. 9, 2003</td>
+				<td align="center">v2.1</td>
+				<td align="center">Joystick sensivity adj.</td>
+			</tr>
+		</table>
+		<hr>
+		<p><font color="#000000" face="Arial">Back to &quot;</font><a href="../"><font color="#000000" face="Arial">Cave of MindStorms</font></a><font color="#000000" face="Arial">&quot;</font></p>
+		<hr>
+		<p><font color="#000000" face="Arial">Copyright (C) 2003 mac@research.co.jp</font></p>
+	</body>
+
+</html>

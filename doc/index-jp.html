@@ -1,0 +1,258 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=x-sjis">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>JoyBricx</title>
+<link rel="SHORTCUT ICON" href="favicon.ico">
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h1>JoyBricx</h1>
+
+<p align="right"><a href="index-e.html">English version is here.</a></p>
+
+<hr>
+
+<h2>はじめに</h2>
+
+<p>LEGOは、2002年12月<a href="../sdk2_5">MindStorms SDK 2.5を</a>無償でリリースしました。</p>
+
+<p>これで、やりたいことは、全部できるような気がしましたが、実際アプリケーションを造ろうとすると、色々な障害にあたりました。</p>
+
+<p>ToweApi.h, TowerApi.dllはあるのに、towreapi.libがないなどです。</p>
+
+<p>*.libがない場合、LoadLibrary()でLinkし、各関数の入り口に関数へのポインターをセットすればよいのですが、これは結構手間がかかるし、間違いがおきやすいので、自動的にこれを行う仕組みを整え、<a
+href="../LTremo76">LTremo76</a>で具体例をしめしました。</p>
+
+<hr>
+
+<h2>USB LEGO Tower</h2>
+
+<p>他のページにも書きましたが、SDK2.5にUSB LEGO
+Towerのデバイスドライバーが入っているおかげで、RIS
+2.0を持っていない人でも、別途<a href="../legotower">USB
+LEGOTowerを用意する</a>だけでNQCなどで使うことができます。</p>
+
+<p>USB LEGO Towerは、恐らくRCX, Scout, MicroSout以外にも、使えることは、薄々わかっていました。</p>
+
+<p>今回のSDK 2.5により、具体的な操作法が公開され、そのすべてが使えるようになりました。</p>
+
+<p>ただ、<a href="../LTremo76">LTremo76</a>として公開したものは、あくまで「使用例」で、プログラム的にわかりやすくても、アプリケーションとしては使いやすいものではありませんでした。</p>
+
+<p>今回は、プログラムは複雑になりますが、もっと使いやすいUSB
+LEGO Towerの使用例を紹介しようと思います。</p>
+
+<hr>
+
+<h2>JoyBricxとは</h2>
+
+<p>基本的にこのソフトは、Windows PCに繋いだJoySticks,やGamePADで、Spybotics,
+Bionicle RC Fighterを操作するリモコンです。</p>
+
+<p>ただし、一般のリモコンと違い、JoySticks,
+GamePAD以外にも、Keyboardや、Mouseも使え、複数台のメカを同時に制御することができます。</p>
+
+<p>さらに、その操作を時系列として記録し、ファイルにSaveしたり、ファイルからLoadし、ロボットに同じ動きをさせることができます。</p>
+
+<p>いわゆるティーチングロボットを作れるのです。</p>
+
+<p>今回バージョンアップ(v2.0)で次の変更をしました。</p>
+		<ol>
+    <li>キーボードのファンクションキーの割り当て変更
+    </li>
+    <li>RCX/SCOUTも制御できる機能を追加 </li>
+			<li>NQCソースコードのエクスポート機能を追加
+    </li>
+		</ol>
+		<p>しかし実際遊んでみると、別のタイプのコントローラーも試したくなってきました。</p>
+		<p>私はTV/PC Game をしないのですが、<a href="http://www.ps2linux.com/">PS2Linux</a>で遊びたかったので、このようなものを持っています。</p>
+		<div align="center">
+			<p><img src="ps2pad.jpg" width="283" height="191" border="0"></p>
+		</div>
+		<p>また、私のものではないのですが、家の中には、</p>
+		<div align="center">
+			<p><img src="joystick.jpg" width="283" height="213" border="0"></p>
+		</div>
+		<p>のようなものもあります。</p>
+		<p>そこでつい、ELECOM USBtoPS/PS2ゲームパッドコンバーターを買ってきて試してみました。</p>
+		<div align="center">
+			<p><img src="elecom.jpg" width="283" height="369" border="0"></p>
+		</div>
+		<p>その結果、JoyBricxは、設計どおりアナログモード／デジタルモード双方に対応していることがわかったのですが、デバイスには、感度の違いが随分あり、これを調整できたほうが良いこともわかりました。</p>
+		<p>そこで、v2.0をリリースした直後なのですが、この感度調整機能を付加し、v2.1をリリースすることにしました。</p>
+		<hr>
+		<h2>DownloadとInstall</h2>
+
+<p>ここに、ZIP圧縮した<a href="JoyBricx-v2_1.zip">実行ファイル、ソースコードを含むすべて</a>を置きます。レジストリなどシステムに手を加えませんので、安心してDownloadし、解凍後、実行して下さい。</p>
+
+<p>気に入らなければ、解凍したホルダーを消去すれば、UnInstallできます。</p>
+
+<p>Tool類は、お既に<a href="../LTremo76">LTremo76</a>で公開してますので、その分は省いています。具体的には、TowerApi_m.hと、TowerInit.incをコピーするだけです。</p>
+
+<hr>
+
+<h2>遊び方</h2>
+
+<p>簡単ですので、いきなり使ったほうが、これを読んでいるより早いかもしれません(^^;</p>
+
+<p align="center"><img src="panel.gif" width="500" height="315"></p>
+
+<p>まず、Spybotics, RC Fighterを合計3台以内、それぞれ異なるチャンネルに設定します。将来的のは、このリモコンでチャンネル設定もできるようにしようかと思うのですが、今のところ、専用リモコンでセットしてください。</p>
+
+<p>Spyboticsの場合、まず、Spybotの電源をいれ、専用リモコンの切り替えスイッチを中央にして、1～3のボタンを押した後、鍵のマークを押して下さい。</p>
+
+<p>RC Fighterは、切り替えスイッチを切り替えるだけですから、操作はもっと簡単です。</p>
+
+<p>さて、セットが終わったら、JoyStick, GamePADの出番です。</p>
+
+<p>私は、このプログラムを書きたくて、LOAS
+JOP-U234-CBL (USB Game Pad)を買ってきました。</p>
+
+<p align="center"><img src="remoside.jpg" width="425"
+height="305"><img src="remotop.jpg" width="425" height="324"></p>
+
+<p>X, Y 軸とボタンが8個以上あると、便利ですが、足りない場合も、キーボードやマウスでも操作できますから、このプログラムは使えます。</p>
+
+<p>さらに言うなら、キーボードや、マウスでも操作できるので、そのほうが使い慣れているなら、特別、JoyStickや、ゲームコントローラーを買う必要はありません。</p>
+
+<p>普通十字キーに割り当てられているX, Y軸で進行方向を決め、ボタン1～4で、動作するマシンを選択します。</p>
+<div align="center"><center>
+
+<table border="1" cellpadding="0">
+    <tr>
+        <td align="center">キーの種類</td>
+        <td align="center">動作</td>
+        <td align="center">相当するKeyboardのボタン</td>
+        <td align="center">相当するパネルボタン</td>
+    </tr>
+    <tr>
+        <td align="center">KeyのX軸</td>
+        <td align="center">進行方向の左右を決める</td>
+        <td align="center">[←] [→]</td>
+        <td align="center">リング状の方向を左クリック</td>
+    </tr>
+    <tr>
+        <td align="center">KeyのY軸</td>
+        <td align="center">進行方向の前後を決める</td>
+        <td align="center">[↑] [↓]</td>
+        <td align="center">リング状の方向を左クリック</td>
+    </tr>
+    <tr>
+        <td align="center">Button 1</td>
+        <td align="center">CH 1を選択</td>
+        <td align="center">F1</td>
+        <td align="center">CH 1</td>
+    </tr>
+    <tr>
+        <td align="center">Button 2</td>
+        <td align="center">CH 2を選択</td>
+        <td align="center">F2</td>
+        <td align="center">CH 2</td>
+    </tr>
+    <tr>
+        <td align="center">Button 3</td>
+        <td align="center">CH 3を選択</td>
+        <td align="center">F3</td>
+        <td align="center">CH 3</td>
+    </tr>
+    <tr>
+        <td align="center">Button 4</td>
+        <td align="center">CH 全部を選択</td>
+        <td align="center">F4</td>
+        <td align="center">　</td>
+    </tr>
+    <tr>
+        <td align="center">Button 5</td>
+        <td align="center">記録開始</td>
+        <td align="center">F5</td>
+        <td align="center">Start Button</td>
+    </tr>
+    <tr>
+        <td align="center">Button 6</td>
+        <td align="center">記録終了</td>
+        <td align="center">F6</td>
+        <td align="center">Stop Button</td>
+    </tr>
+    <tr>
+        <td align="center">Button 7</td>
+        <td align="center">Spybot Mode</td>
+        <td align="center">F7</td>
+        <td align="center">Spybot/Bionicle Button</td>
+    </tr>
+    <tr>
+        <td align="center">Button 8</td>
+        <td align="center">RCX Mode</td>
+        <td align="center">F8</td>
+        <td align="center">RCX/SCOUT Button</td>
+    </tr>
+</table>
+</center></div>
+
+<p align="left">SpybotとRCX/SCOUTは、同時に動かすことはできませんが、モード切替で瞬時に切り替えできます。</p>
+
+<p align="left">Save Modeは、このプログラムの独自フォーマットの場合、サフィックスに、*.jbxを選択してください。この形式の場合、複数台を操作したり、モード切替を行ったことも記録されるので、完全にReplayさせることができます。</p>
+
+<p align="left">一方、NQCで出力したい場合、あらかじめ、モードを選択した後、Saveボタンを押してください。</p>
+
+<p align="left">出力されるのは、選択したモードがRCX/SCOUTの場合は、RCX/SCOUTに対して行った操作のみになります。</p>
+
+<p align="left">Spybot/Bionicleモードの場合、チャンネル1のマシンに行った操作だけが、出力されます。</p>
+		<p align="left">JoyStick sensivityのスライダーは、使用するJoyStick等のニュートラル範囲を設定します。操作しながら快適に操縦できるよう感度調整してください。</p>
+		<hr>
+
+<h2>アクションログの取り方</h2>
+
+<p>「記録開始」をしてから「記録停止」をするまでのアクション、チャンネルの切り替えは、すべて時間経過と共に記録されます。</p>
+
+<p>マウスで、Start/Stopを押すか、ジョイパッドで5/6を押すことで、開始と停止がそれぞれできます。</p>
+
+<p>Saveする前に、新規に記録をとろうとしたり、FileをLoadしようとしたり、プログラムを終了しようとすると、警告が出ます。</p>
+
+<p>記録したもの、ファイルからロードしたものは、Replayボタンを押すと再現されます。</p>
+
+<p>チャンネルボタンを同時に2個以上押しても大丈夫です。でも、1個の場合よりマシンの応答は遅くなります。</p>
+
+<p>3個同時に押せば、All channelと解釈するので、一個のチャンネルと同じように早くなります。でも、その場合は、ボタン4を押すべきでしょう。</p>
+
+<hr>
+
+<h2>License</h2>
+
+<p>MindStorms　SDK 2.5に関連する部分は、その使用条件に従ってください。</p>
+
+<p>私が独自に書いた部分については、非商用なら、自由に使ってください。商用に使う場合は、個別にご相談ください。</p>
+
+<hr>
+
+<h2>History</h2>
+
+<table border="1" cellpadding="0">
+    <tr>
+        <td align="center">2003/02/02</td>
+        <td align="center">v1.0</td>
+        <td align="center">ファーストバージョンをリリース</td>
+    </tr>
+    <tr>
+        <td align="center">2003/02/08</td>
+        <td align="center">v2.0</td>
+        <td align="center">RCXの操作、NQCのエクスポート機能を追加</td>
+    </tr>
+			<tr>
+				<td align="center">2003/02/09</td>
+				<td align="center">v2.1</td>
+				<td align="center">Joystick sensivity調整機能を追加</td>
+			</tr>
+		</table>
+
+<hr>
+
+<p><a href="../">MindStormsの洞窟に戻る</a></p>
+
+<hr>
+
+<p>Copyright (C) 2003 mac@research.co.jp</p>
+</body>
+</html>
