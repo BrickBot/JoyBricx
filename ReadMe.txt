@@ -2,6 +2,13 @@
        MICROSOFT FOUNDATION CLASS Library: JoyBricx
 ========================================================================
 
+An application for remotely controlling the Spybots and the Bionicle RC Fighter
+via a Lego IR tower using a joystick or game pad.
+
+Project Information
+    Original Project Web Page – https://line.to/mac/MindStorms/JoyBricx/index-e.html
+	Related TowerAPI Web Page – https://line.to/mac/MindStorms/LTremo76/
+
     File translated from the Japanese-language ReadMe via Google Translate
 
 
